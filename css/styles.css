@@ -43,8 +43,9 @@ nav>ul>li a {
 /*Side Menu*/
 
 .mainContent ul{
-    padding-inline-start: 2px;
-    margin-right: 1.5rem;
+    padding-inline-start: 0px;
+    margin-right: 0;
+    padding: .7rem;
 }
 
 .mainContent ul>a>li{
@@ -66,27 +67,78 @@ nav>ul>li a {
     color: #fff;
 }
 
-.mainContent{
+/* parent */
+.mainContent{ 
     /* width:1000px; */
     margin-left: auto;
     margin-right: auto;
     /* add flexbox. Browser will automatically adjust to a row */
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* TEST */
+    /* background-color: yellow; */
+    /* height: 600px; */
+    /* align-content: space-around; */
+
+}
+.pieGallery {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 60%;
+    flex-wrap: wrap;
+    align-content: flex-start;
 }
 
-/* .leftmenu {
-    float: left;
-    width: 30%;
-    margin-bottom: 20px;
-} */
+.pieCard {
+    display: flex;
+    flex-direction: column;
+    margin: 0.4rem;
+    /* align-items: center; */
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.3);
+    padding: .4rem;
+    flex-grow: 2;
+}
 
+.pieCard > h5, .pieCard > p {
+    margin: 0.2rem;
+}
+
+.pieCard > img {
+    align-self: center;
+}
+.cardRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardRow > h5, .cardRow > p {
+    margin: 0.2rem;
+}
+
+#promos {
+    align-self: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+    border-radius: 20px;
+
+}
+
+#promos > h3 {
+    margin: 5px 0;
+
+}
+.leftMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 /*Main Content*/
-
-/* .main {
-    float: right;
-    width: 70%;
-    margin-bottom: 20px;
-} */
 
 
 .pageTitle{
@@ -94,11 +146,78 @@ nav>ul>li a {
     color:#a593c2;
 }
 
-/*Footer*/
-/* footer {
-    clear: both;
-    width: 100%;
+.box {
+    width: 200px;
+    height: 100px;
+    background-color: red;
+    margin: 5px 10px;
+    
+}
+
+/* .box:nth-child(1) {
+    order: 15;
 } */
+
+.pieRow h5, .pieRow p {
+    margin: 0;
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 60%;
+    /* background-color: grey; */
+}
+.pieRow {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+    padding-right: .5rem ;
+}
+.pieRow > div {
+    flex-grow: 2;
+    padding-left: .5rem;
+}
+
+.pieRow > small {
+    flex-shrink: 3;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/*Footer*/
 footer {
     display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+footer > p, footer > address {
+    margin: .5rem 0;
+}
+
+
+/* Media Queries */
+@media screen and (max-width: 600px) {
+    .leftMenu {
+        order: 1;
+    }
+    .main, .pieGallery {
+        flex-basis: 90% ;
+    }
 }
